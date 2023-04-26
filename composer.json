@@ -1,0 +1,29 @@
+{
+    "type": "magento2-module",
+    "name": "lopezpaul/module-customer-registration-api",
+    "description": "N/A",
+    "authors": [
+        {
+            "email": "paul.lopezm@gmail.com",
+            "name": "Paul Lopez"
+        }
+    ],
+    "version": "1.0.0",
+    "time": "2023-04-23",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "php": "~8.1.0||~8.2.0",
+        "magento/framework": "103.0.*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "LopezPaul\\CustomerRegistrationApi\\": ""
+        }
+    }
+}
+

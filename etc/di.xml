@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2023 LopezPaul. All rights reserved.
+ *
+ * @package  LopezPaul_CustomerRegistrationApi
+ * @author   Paul Lopez <paul.lopezm@gmail.com>
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Interfaces   -->
+    <preference for="LopezPaul\CustomerRegistrationApi\Api\CustomerLogsInterface"
+                type="LopezPaul\CustomerRegistrationApi\Model\CustomerLogs" />
+    <preference for="LopezPaul\CustomerRegistrationApi\Api\CustomerEmailsInterface"
+                type="LopezPaul\CustomerRegistrationApi\Model\CustomerEmails" />
+    <preference for="LopezPaul\CustomerRegistrationApi\Api\ConfigManagerInterface"
+                type="LopezPaul\CustomerRegistrationApi\Model\ConfigManager" />
+    <!-- Custom Logger on var/log/lopezpaul.log -->
+    <type name="LopezPaul\CustomerRegistrationApi\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="LopezPaul\CustomerRegistrationApi\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">LopezPaulLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">LopezPaul\CustomerRegistrationApi\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
